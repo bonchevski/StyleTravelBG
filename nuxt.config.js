@@ -14,7 +14,9 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'script', src:'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'},
+      { rel: 'script', src:'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'}
     ]
   },
 
@@ -39,6 +41,7 @@ module.exports = {
   ** Nuxt.js modules
   */
   modules: [
+
   ],
 
   /*
@@ -52,4 +55,4 @@ module.exports = {
       
     }
   }
-}
+};
