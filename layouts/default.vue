@@ -4,19 +4,24 @@
     <TheSidenav
             :show="displaySidenav"
             @close="displaySidenav = false" />
+
     <nuxt/>
+      <theFooter/>
+
   </div>
 </template>
 
 <script>
     import TheHeader from '@/components/Navigation/TheHeader'
     import TheSidenav from '@/components/Navigation/TheSidenav'
+    import TheFooter from '@/components/navigation/TheFooter'
 
     export default {
         // middleware: 'log',
         components: {
             TheHeader,
-            TheSidenav
+            TheSidenav,
+            TheFooter
         },
         data() {
             return {
