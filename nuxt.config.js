@@ -16,8 +16,17 @@ module.exports = {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'script', src:'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'},
+<<<<<<< HEAD
       { rel: 'script', src:'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'},
     ]
+=======
+      { rel: 'script', src:'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js'}
+    ],
+    script: [
+      { src: '/js/fb-sdk.js' }
+     ]
+ 
+>>>>>>> 192522ebe4d7413b3b3365009f90022e5ca6f8d3
   },
 
   /*
