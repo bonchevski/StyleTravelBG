@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id="main">
     <TheHeader @sidenavToggle="displaySidenav = !displaySidenav" />
     <TheSidenav
             :show="displaySidenav"
