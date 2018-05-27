@@ -1,7 +1,7 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <div class="wrapper d-none d-md-block hidden-sm col-md-12"  :style="{ backgroundImage: `url(${backgroundUrl})` }">
-            <h1 class="greeting">{{ postTitle }}</h1>
+            <h1 class="greeting align-items-center">{{ postTitle }}</h1>
         </div>
     </div>
 </template>
@@ -24,20 +24,25 @@
 </script>
 
 <style scoped>
-    .container {
-        min-width: 100vw;
+    .container-fluid {
+
+        width: 100%;
         padding: 0;
+
     }
 
    .wrapper {
        width: 100vw;
        height: 250px;
+       padding: 0;
    }
 
     .greeting {
         color: white;
         text-align: left;
-        margin-left: 1.5vw;
-        margin-top: 5vh
+        padding-left: 30px;
+        padding-top: 10vh;
     }
+
+
 </style>

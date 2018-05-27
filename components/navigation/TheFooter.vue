@@ -13,7 +13,7 @@
 
             </div>
 
-        <div class="col-sm-2 offset-sm-3 col-md-2 offset-md-0 col-lg-1 offset-lg-0 arrow">
+        <div class="col-sm-2 offset-sm-3x col-md-2 offset-md-0 col-lg-1 offset-lg-0 arrow">
             <a href="#main"><i class="fa fa-angle-up fa-3x"></i></a>
         </div>
         </div>
@@ -34,6 +34,9 @@
         min-height: 0;
         max-width: 1920px;
         padding: 0;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
     }
     .the-footer {
         color: white;
