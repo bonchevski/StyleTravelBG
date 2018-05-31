@@ -12,9 +12,6 @@
         class="nav-list"
         @click="$emit('close')">
         <li class="nav-item">
-          <nuxt-link to="/default">Home</nuxt-link>
-        </li>
-        <li class="nav-item">
           <nuxt-link to="/trips">Trips</nuxt-link>
         </li>
         <li class="nav-item">
@@ -51,7 +48,7 @@ export default {
 .sidenav-backdrop {
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(71, 73, 78, 0.7);
   z-index: 1000;
   position: fixed;
   top: 0;

@@ -3,6 +3,8 @@
         <div class="wrapper d-none d-md-block hidden-sm col-md-12"  :style="{ backgroundImage: `url(${backgroundUrl})` }">
             <h1 class="greeting align-items-center">{{ postTitle }}</h1>
         </div>
+
+        <h1 class="greeting-mobile d-md-none hidden-md col-6 offset-3">{{ postTitle }}</h1>
     </div>
 </template>
 
@@ -33,7 +35,7 @@
 
    .wrapper {
        width: 100vw;
-       height: 250px;
+       height: 230px;
        padding: 0;
    }
 
@@ -44,5 +46,7 @@
         padding-top: 10vh;
     }
 
-
+    .greeting-mobile {
+        margin-top: 5%;
+    }
 </style>

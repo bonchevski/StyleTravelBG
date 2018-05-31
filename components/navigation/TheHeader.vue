@@ -9,16 +9,13 @@
             <div class="navigation-items">
                 <ul class="nav-list">
                     <li class="nav-item">
-                        <nuxt-link to="/posts">Home</nuxt-link>
+                        <nuxt-link to="/trips">Trips</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link to="/about">Trips</nuxt-link>
+                        <nuxt-link to="/about">About us</nuxt-link>
                     </li>
                     <li class="nav-item">
-                        <nuxt-link to="/admin">About us</nuxt-link>
-                    </li>
-                    <li class="nav-item">
-                        <nuxt-link to="/about">Contact us</nuxt-link>
+                        <nuxt-link to="/contact">Contact us</nuxt-link>
                     </li>
                 </ul>
             </div>
@@ -50,7 +47,7 @@
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: black;
+        background-color: #47494e;
         z-index: 100;
         box-sizing: border-box;
         padding: 0 20px;
@@ -99,6 +96,7 @@
     .nav-item a:hover,
     .nav-item a:active,
     .nav-item a.nuxt-link-active {
-        color: red;
+        text-decoration: underline;
+        text-decoration-style:
     }
 </style>

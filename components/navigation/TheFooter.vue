@@ -1,7 +1,7 @@
 <template>
     <footer class="container">
         <div class="the-footer">
-            <div class="col-sm-6 col-md-4 col-lg-3 info">
+            <div class="col-xs-7 col-md-6 col-lg-3 info">
             <h1 class="address">Where to find us: Lozenets 14, Vejhen, Sofia</h1>
             <p class="copyright"> &#169; All rights reserved.</p>
             </div>
@@ -13,7 +13,7 @@
 
             </div>
 
-        <div class="col-sm-2 offset-sm-3x col-md-2 offset-md-0 col-lg-1 offset-lg-0 arrow">
+        <div class="col-xs-2 offset-xs-1 col-md-2 offset-md-0 col-lg-1 offset-lg-0 arrow">
             <a href="#main"><i class="fa fa-angle-up fa-3x"></i></a>
         </div>
         </div>
@@ -41,11 +41,11 @@
     .the-footer {
         color: white;
         width: 100%;
-        height: 65px;
+        height: 150px;
         display: flex;
         justify-content: space-around;
         align-items: center;
-        background-color: black;
+        background-color: #47494e;
         z-index: 100;
         box-sizing: border-box;
 
@@ -62,20 +62,21 @@
 
     i:hover {
         background-color: white;
-        color: black;
+        color: #47494e;
         border-radius: 5px;
     }
 
     .address {
-        margin-top: 10px;
-        font-size: .9rem;
+        padding-top: 10px;
+        margin-bottom: 5px !important;
+        font-size: .8rem;
         width: 100%;
         text-align: left;
     }
 
     .copyright {
         font-size: .7rem;
-        margin-bottom: 5px !important;
+        margin-bottom: 1px !important;
         text-align: left;
     }
 </style>

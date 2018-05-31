@@ -53,7 +53,13 @@ module.exports = {
     modules: [
         '@nuxtjs/font-awesome',
         'nuxt-fontawesome',
+        '@nuxtjs/axios'
     ],
+
+    axios: {
+        baseURL: process.env.BASE_URL || 'https://styletravel-51842.firebaseio.com/',
+        credentials: false
+    },
 
     /*
     ** Build configuration
@@ -65,5 +71,10 @@ module.exports = {
         extend(config, ctx) {
 
         }
+    },
+
+    env: {
+        baseURL: process.env.BASE_URL || 'https://styletravel-51842.firebaseio.com/',
+        fbAPIKey: 'AIzaSyBmQs0bYc6bMF4NyY2yMmnYgkbDDHjbGXc'
     }
 };
