@@ -88,7 +88,9 @@
 
         </section>
 
-
+        <TopPostsList
+                isAdmin
+                :posts="loadedPosts" />
 
         <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @click="!displayModal">
         Launch demo modal
@@ -124,17 +126,24 @@
     import 'bootstrap/dist/css/bootstrap.css'
     import 'bootstrap-vue/dist/bootstrap-vue.css'
     import Banner from "@/components/UI/banner"
+    import TopPostsList from "@/components/posts/TopPostsList"
+
 
     export default {
         components: {
-            Banner
+            Banner,
+            TopPostsList
         },
         data() {
             return {
                 displayModal: false
             }
-        }
-
+        },
+        computed: {
+            loadedPosts() {
+                return this.$store.getters.loadedPosts;
+            }
+        },
 
     }
 

@@ -1,10 +1,11 @@
 import Vuex from "vuex";
-import Cookie from "js-cookie"
+import Cookie from "js-cookie";
 
 const createStore = () => {
     return new Vuex.Store({
         state: {
-            loadedOffers: []
+            loadedPosts: [],
+            token: null
         },
         mutations: {
             setPosts(state, posts) {
@@ -19,6 +20,12 @@ const createStore = () => {
                 );
                 state.loadedPosts[postIndex] = editedPost;
             },
+            setToken(state, token) {
+                state.token = token;
+            },
+            clearToken(state) {
+                state.token = null;
+            }
         },
         actions: {
             nuxtServerInit(vuexContext, context) {
@@ -115,7 +122,7 @@ const createStore = () => {
                         .split(";")
                         .find(c => c.trim().startsWith("expirationDate="))
                         .split("=")[1];
-                } else {
+                } else if (process.client) {
                     token = localStorage.getItem("token");
                     expirationDate = localStorage.getItem("tokenExpiration");
                 }
@@ -144,5 +151,7 @@ const createStore = () => {
                 return state.token != null;
             }
         }
-    })
-}
+    });
+};
+
+export default createStore
