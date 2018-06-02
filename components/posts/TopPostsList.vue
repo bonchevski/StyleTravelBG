@@ -1,8 +1,7 @@
 <template>
     <section class="post-list">
-        <PostPreview
-                v-for="(post, index) in posts"
-                :index="2"
+        <OfferPreview
+                v-for="post in posts.slice(0,3)"
                 :key="post.id"
                 :id="post.id"
                 :is-admin="isAdmin"
@@ -10,16 +9,21 @@
                 :offerLocation="post.offerLocation"
                 :offerDescription="post.offerDescription"
                 :offerPrice="post.offerPrice"
+                :offerDateDay="post.offerDateDay"
+                :offerDateMonth="post.offerDateMonth"
+                :offerDateYear="post.offerDateYear"
+                :offerSpots="post.offerSpots"
+
         />
     </section>
 </template>
 
 <script>
-    import PostPreview from '@/components/Posts/PostPreview'
+    import OfferPreview from '@/components/Posts/OfferPreview'
 
     export default {
         components: {
-            PostPreview
+            OfferPreview
         },
         props: {
             isAdmin: {

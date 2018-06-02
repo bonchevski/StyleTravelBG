@@ -78,6 +78,10 @@ module.exports = {
         baseUrl: process.env.BASE_URL || "https://styletravel-51842.firebaseio.com",
         fbAPIKey: "AIzaSyBmQs0bYc6bMF4NyY2yMmnYgkbDDHjbGXc"
     },
+    transition: {
+        name: "fade",
+        mode: "out-in"
+    },
     serverMiddleware: [
         bodyParser.json(), "~/api"
     ],

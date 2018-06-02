@@ -2,7 +2,7 @@
     <form @submit.prevent="onSave">
         <app-control-input v-model="editedPost.offerLocation">Location</app-control-input>
         <app-control-input v-model="editedPost.offerPrice">Price</app-control-input>
-        <app-control-input v-model="editedPost.offerSpots">Spots</app-control-input>
+        <app-control-input v-model="editedPost.offerSpots">Available places</app-control-input>
         <app-control-input v-model="editedPost.offerDateDay">Day</app-control-input>
         <app-control-input v-model="editedPost.offerDateMonth">Month</app-control-input>
         <app-control-input v-model="editedPost.offerDateYear">Year</app-control-input>

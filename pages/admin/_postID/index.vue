@@ -9,16 +9,18 @@
 <script>
     import addOffer from "@/components/Admin/addOffer";
 
+
     export default {
         layout: "admin",
         middleware: ['check-auth', 'auth'],
         components: {
             addOffer
         },
+
         asyncData(context) {
             return context.app.$axios
                 .$get(
-                    process.env.baseURL + "/Offers/" +
+                    process.env.baseUrl + "/Offers/" +
                     context.params.postId +
                     ".json"
                 )

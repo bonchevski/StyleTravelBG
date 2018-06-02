@@ -1,46 +1,13 @@
 <template>
     <main>
-        <banner :background-url="require('~/static/images/dubai.png')" post-title="Welcome to StyleTravel"></banner>
+        <banner :background-url="require('~/static/images/dubai.png')" post-title="Welcome to StyleTravel" />
         <div class="locations">
             <h1 class="section-title"> Top locations </h1>
-            <section class="container">
-                <div class="col-xs-12 offset-0 col-lg-3 offset-lg-1">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 offset-0 col-lg-3 offset-lg-1">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xs-12 offset-0 col-lg-3 offset-lg-1">
-                    <div class="card">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk
-                                of the card's content.</p>
-                            <a href="#" class="card-link">Card link</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
+            <top-posts-list isAdmin
+                            :posts="loadedPosts" />
         </div>
 
-        <banner :background-url="require('~/static/images/dubai.png')" post-title=""></banner>
+        <banner :background-url="require('~/static/images/dubai.png')" post-title="" />
         <section class="offers">
             <h1 class="section-title">Hot offers</h1>
             <div class="row">
@@ -88,7 +55,7 @@
 
         </section>
 
-        <TopPostsList
+        <PostList
                 isAdmin
                 :posts="loadedPosts" />
 
@@ -126,12 +93,13 @@
     import 'bootstrap/dist/css/bootstrap.css'
     import 'bootstrap-vue/dist/bootstrap-vue.css'
     import Banner from "@/components/UI/banner"
-    import TopPostsList from "@/components/posts/TopPostsList"
-
+    import PostList from "@/components/posts/PostList"
+    import TopPostsList from '@/components/posts/TopPostsList'
 
     export default {
         components: {
             Banner,
+            PostList,
             TopPostsList
         },
         data() {

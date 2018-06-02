@@ -1,38 +1,17 @@
 <template>
     <div class="post-preview">
-    <!--<nuxt-link :to="postLink" class="post-preview">-->
-        <article data-toggle="modal" data-target="#exampleModal" @click="!displayModal">
-            <div
-                    class="post-thumbnail"
-                    :style="{backgroundImage: 'url(' + offerImgLink + ')'}"></div>
-            <div class="post-content">
-                <h1>{{offerLocation}}</h1>
-                <p>{{offerDescription}}</p>
-                <p>{{ offerPrice }}</p>
-            </div>
-        </article>
-    <!--</nuxt-link>-->
-
-
-    <div class="modal" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" v-show="displayModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+        <nuxt-link :to="postLink" class="post-preview">
+            <article>
+                <div
+                        class="post-thumbnail"
+                        :style="{backgroundImage: 'url(' + offerImgLink + ')'}"></div>
+                <div class="post-content">
+                    <h1>{{offerLocation}}</h1>
+                    <p>{{offerDescription | snippet}}...</p>
+                    <p>{{ offerPrice }}</p>
                 </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
+            </article>
+        </nuxt-link>
     </div>
 </template>
 
@@ -71,23 +50,29 @@
             offerImgLink: {
                 type: String,
                 required: true
-            }
+            },
         },
         computed: {
             postLink() {
-                return this.isAdmin ? '/admin/' + this.id : '/Offers/' + this.id
+                return this.isAdmin ? '/admin/' + this.id : '/posts/' + this.id
             }
         },
+        filters: {
+            snippet: function (value) {
+                return value.slice(0, 70)
+            }
+        }
     }
 </script>
 
 
 <style scoped>
     .post-preview {
-        border: 1px solid #ccc;
+        /*border: 1px solid #ccc;*/
         box-shadow: 0 2px 2px #ccc;
         background-color: white;
-        width: 90%;
+        width: 80%;
+        height: 400px;
     }
 
     a {
@@ -97,9 +82,13 @@
 
     @media (min-width: 850px) {
         .post-preview {
-            width: 350px;
+            width: 330px;
             margin: 10px;
         }
+    }
+
+    h1 {
+        font-size: 1.5rem
     }
 
     .post-thumbnail {
@@ -116,6 +105,5 @@
 
     a:hover .post-content,
     a:active .post-content {
-        background-color: #ccc;
     }
 </style>
