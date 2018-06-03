@@ -8,7 +8,7 @@
 
 <script>
 import axios from "axios";
-import addOffer from "@/components/Admin/addOffer";
+import addOffer from "@/components/admin/addOffer";
 
 export default {
   layout: "admin",

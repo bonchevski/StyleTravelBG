@@ -19,7 +19,7 @@
 </template>
 
 <script>
-    import OfferPreview from '@/components/Posts/OfferPreview'
+    import OfferPreview from '@/components/posts/OfferPreview'
 
     export default {
         components: {

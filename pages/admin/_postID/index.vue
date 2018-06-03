@@ -7,7 +7,7 @@
 </template>
 
 <script>
-    import addOffer from "@/components/Admin/addOffer";
+    import addOffer from "@/components/admin/addOffer";
 
 
     export default {
