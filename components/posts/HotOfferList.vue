@@ -1,8 +1,7 @@
 <template>
     <section class="post-list">
-        <OfferPreview
-                v-for="post in posts.reverse().slice(0,3)"
-
+        <HotOfferPreview
+                v-for="post in hotOffers.slice(0,3)"
                 :key="post.id"
                 :id="post.id"
                 :is-admin="isAdmin"
@@ -14,17 +13,17 @@
                 :offerDateMonth="post.offerDateMonth"
                 :offerDateYear="post.offerDateYear"
                 :offerSpots="post.offerSpots"
-
+                :offerDiscount="post.offerDiscount"
         />
     </section>
 </template>
 
 <script>
-    import OfferPreview from '@/components/Posts/OfferPreview'
+    import HotOfferPreview from '@/components/posts/HotOfferPreview'
 
     export default {
         components: {
-            OfferPreview
+            HotOfferPreview
         },
         props: {
             isAdmin: {
@@ -36,7 +35,15 @@
                 required: true
             }
         },
-
+        computed: {
+            hotOffers: function() {
+                return this.posts.filter((post) => {
+                    if(post.offerDiscount > 0) {
+                    return post
+                    }
+                })
+            }
+        }
     }
 </script>
 

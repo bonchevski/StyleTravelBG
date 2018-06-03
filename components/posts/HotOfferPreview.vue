@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="post-preview">
-
             <article>
                 <div
                         class="post-thumbnail"
@@ -31,6 +30,7 @@
                             <p>Date: {{offerDateDay}} {{offerDateMonth}} {{offerDateYear}}</p>
                             <p>Price: {{ offerPrice }}</p>
                             <p class="spots">Available spots: {{ offerSpots }}</p>
+                            <p>Discount: {{ offerDiscount }}%</p>
                         </div>
                     </div>
 
@@ -81,6 +81,39 @@
                 </b-container>
 
             </b-modal>
+
+
+            <!--<div class="modal" id="exampleModa2" role="dialog"-->
+            <!--v-if="displayModal">-->
+            <!--<div class="modal-dialog" role="document">-->
+            <!--<div class="modal-content">-->
+            <!--<div class="modal-header">-->
+            <!--<h5 class="modal-title" id="exampleModalLabel">{{ offerLocation }}</h5>-->
+            <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+            <!--<span aria-hidden="true">&times;</span>-->
+            <!--</button>-->
+            <!--</div>-->
+            <!--<div class="modal-body">-->
+            <!--<div-->
+            <!--class="post-thumbnail"-->
+            <!--:style="{backgroundImage: 'url(' + offerImgLink + ')'}"></div>-->
+            <!--<h1>{{offerLocation}}</h1>-->
+            <!--<p>{{ offerDescription }}</p>-->
+
+            <!--<div class="informations">-->
+            <!--<p>Date: {{offerDateDay}} {{offerDateMonth}} {{offerDateYear}}</p>-->
+            <!--<p>Price: {{ offerPrice }}</p>-->
+            <!--<p class="spots">Available spots: {{ offerSpots }}</p>-->
+            <!--<p>Discount: {{ offerDiscount }}%</p>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="modal-footer">-->
+            <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+            <!--<nuxt-link :to="postLink" type="button" class="btn btn-primary">Save changes</nuxt-link>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
         </div>
 
     </div>
@@ -91,7 +124,7 @@
     import 'bootstrap-vue/dist/bootstrap-vue.css'
 
     export default {
-        name: 'PostPreview',
+        name: 'HotOfferPreview',
         data() {
             return {
                 displayModal: false,
@@ -138,17 +171,24 @@
             offerSpots: {
                 type: String,
                 required: true
+            },
+            offerDiscount: {
+                type: String,
+                required: true
             }
         },
         computed: {
             postLink() {
                 return this.isAdmin ? '/admin/' + this.id : '/Offers/' + this.id
-            }
+            },
         },
         filters: {
             snippet: function (value) {
                 return value.slice(0, 70)
             }
+        },
+        methods: {
+
         }
     }
 </script>
@@ -210,11 +250,6 @@
 
     }
 
-    .informations {
-        text-align: right;
-        border-top: 1px solid #ccc
-    }
-
     .post-preview {
         border: 1px solid #ccc;
         box-shadow: 0 2px 2px #ccc;
@@ -226,7 +261,6 @@
         text-decoration: none;
         color: black;
     }
-
 
     .post-preview {
         width: 350px;

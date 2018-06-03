@@ -1,88 +1,55 @@
 <template>
     <main>
-        <banner :background-url="require('~/static/images/dubai.png')" post-title="Welcome to StyleTravel" />
+        <banner  :background-url="require('~/static/images/dubai.png')" post-title="Welcome to StyleTravel" />
         <div class="locations">
             <h1 class="section-title"> Top locations </h1>
             <top-posts-list isAdmin
                             :posts="loadedPosts" />
         </div>
 
-        <banner :background-url="require('~/static/images/dubai.png')" post-title="" />
+
+        <div class="container-fluid">
+            <div class="offers-banner d-none d-md-block hidden-sm col-md-12">
+                <h1 class="greeting align-items-center"></h1>
+            </div>
+
+            <h1 class="greeting-mobile d-md-none hidden-md col-8 offset-2">Hot offers</h1>
+        </div>
+
+
         <section class="offers">
             <h1 class="section-title">Hot offers</h1>
-            <div class="row">
-                <div class="col-lg-3 ">
-                    <div class="card">
-                        <img class="card-img-top" src="~/static/images/rome.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some content.</p>
-                            <a href="#" class="btn btn-primary">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 ">
-                    <div class="card">
-                        <img class="card-img-top" src="~/static/images/rome.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some quicks content.</p>
-                            <a href="#" class="btn btn-primary">Read more</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 ">
-                    <div class="card">
-                        <img class="card-img-top" src="~/static/images/rome.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 ">
-                    <div class="card">
-                        <img class="card-img-top" src="~/static/images/rome.png" alt="Card image cap">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <p class="card-text">Some content.</p>
-                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            <HotOfferList
+                    isAdmin
+                    :posts="loadedPosts" />
         </section>
 
-        <PostList
-                isAdmin
-                :posts="loadedPosts" />
 
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @click="!displayModal">
-        Launch demo modal
-        </button>
 
-        <!-- Modal -->
-        <div class="modal" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" v-show="displayModal">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        ...
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <!--<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" @click="!displayModal">-->
+        <!--Launch demo modal-->
+        <!--</button>-->
+
+        <!--&lt;!&ndash; Modal &ndash;&gt;-->
+        <!--<div class="modal" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" v-show="displayModal">-->
+            <!--<div class="modal-dialog" role="document">-->
+                <!--<div class="modal-content">-->
+                    <!--<div class="modal-header">-->
+                        <!--<h5 class="modal-title" id="exampleModalLabel">Modal title</h5>-->
+                        <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                            <!--<span aria-hidden="true">&times;</span>-->
+                        <!--</button>-->
+                    <!--</div>-->
+                    <!--<div class="modal-body">-->
+                        <!--...-->
+                    <!--</div>-->
+                    <!--<div class="modal-footer">-->
+                        <!--<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </main>
 
 </template>
@@ -93,18 +60,20 @@
     import 'bootstrap/dist/css/bootstrap.css'
     import 'bootstrap-vue/dist/bootstrap-vue.css'
     import Banner from "@/components/UI/banner"
-    import PostList from "@/components/posts/PostList"
+    import HotOfferList from "@/components/posts/HotOfferList"
     import TopPostsList from '@/components/posts/TopPostsList'
+
 
     export default {
         components: {
             Banner,
-            PostList,
+            HotOfferList,
             TopPostsList
         },
         data() {
             return {
-                displayModal: false
+                displayModal: false,
+
             }
         },
         computed: {
@@ -118,6 +87,37 @@
 </script>
 
 <style>
+    /* offers banner */
+    .container-fluid {
+
+        width: 100%;
+        padding: 0;
+
+    }
+
+    .offers-banner {
+        width: 100vw;
+        height: 230px;
+        padding: 0;
+        /*background-repeat: no-repeat;*/
+        background-image: url("~/static/images/offersBanner.jpg");
+    }
+
+    .greeting {
+        color: white;
+        text-align: left;
+        padding-left: 30px;
+        padding-top: 10vh;
+    }
+
+    .greeting-mobile {
+        margin-top: 5%;
+        text-align: center;
+    }
+    
+    
+    
+    
     .row {
         margin: 0 !important;
     }
@@ -134,7 +134,10 @@
 
     .section-title {
         text-align: center;
-        padding-bottom: 20px;
+        margin-bottom: 20px;
+        border-bottom: 2px solid #ccc;
+        font-size: 1.7rem;
+        padding-bottom: 10px;
     }
 
     .container {

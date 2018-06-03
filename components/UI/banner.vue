@@ -4,7 +4,7 @@
             <h1 class="greeting align-items-center">{{ postTitle }}</h1>
         </div>
 
-        <h1 class="greeting-mobile d-md-none hidden-md col-6 offset-3">{{ postTitle }}</h1>
+        <h1 class="greeting-mobile d-md-none hidden-md col-8 offset-2">{{ postTitle }}</h1>
     </div>
 </template>
 
@@ -14,7 +14,7 @@
     export default {
         name: "banner",
         data() {
-            return { backgroundUrl }
+            return { backgroundUrl };
         },
         props: {
             postTitle: {
@@ -37,6 +37,7 @@
        width: 100vw;
        height: 230px;
        padding: 0;
+       background-repeat: no-repeat;
    }
 
     .greeting {
@@ -48,5 +49,6 @@
 
     .greeting-mobile {
         margin-top: 5%;
+        text-align: center;
     }
 </style>

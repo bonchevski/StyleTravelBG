@@ -1,7 +1,12 @@
 <template>
     <div>
-        <the-banner :background-url="require('~/static/images/dubai.png')"
-                    post-title="Contact us"></the-banner>
+        <div class="container-fluid">
+            <div class="contact-banner d-none d-md-block hidden-sm col-md-12">
+                <h1 class="greeting align-items-center">Contact us</h1>
+            </div>
+
+            <h1 class="greeting-mobile d-md-none hidden-md col-8 offset-2">Contact us</h1>
+        </div>
 
         <div class="col-10 offset-1">
             <h1>Here is where you can get in touch face-to-face or through an e-mail.</h1>
@@ -70,14 +75,45 @@
         name: "index",
         components: {
             theBanner
-        }
+        },
+
     }
 </script>
 
 <style scoped>
+    .container-fluid {
+
+        width: 100%;
+        padding: 0;
+
+    }
+
+    .contact-banner {
+        width: 100vw;
+        height: 230px;
+        padding: 0;
+        /*background-repeat: no-repeat;*/
+        background-image: url("~/static/images/contactUsBanner.jpg");
+    }
+
+    .greeting {
+        color: white;
+        text-align: left;
+        padding-left: 30px;
+        padding-top: 10vh;
+        border: none;
+    }
+
+    .greeting-mobile {
+        margin-top: 5%;
+        text-align: center;
+    }
+
+
     .button {
         padding-bottom: 10px;
     }
+
 
     .half-page-vertical {
         position: relative;
@@ -93,7 +129,8 @@
     h1 {
         padding-top: 20px;
         padding-bottom: 10px;
-        font-size: 1.7rem
+        font-size: 1.7rem;
+        border-bottom: 2px solid #ccc;
     }
 
 

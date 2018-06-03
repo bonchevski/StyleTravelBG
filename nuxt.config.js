@@ -56,7 +56,8 @@ module.exports = {
     modules: [
         '@nuxtjs/font-awesome',
         'nuxt-fontawesome',
-        '@nuxtjs/axios'
+        '@nuxtjs/axios',
+        ['bootstrap-vue/nuxt', { css: false }]
     ],
 
     axios: {
