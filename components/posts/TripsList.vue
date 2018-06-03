@@ -52,7 +52,7 @@
         computed: {
             filteredPosts: function() {
                 return this.posts.filter((post) => {
-                    return post.offerLocation.toLocaleLowerCase().match(this.search)
+                    return post.offerLocation.toLowerCase().match(this.search)
                 })
             }
         }
