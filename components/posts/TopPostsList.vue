@@ -1,8 +1,7 @@
 <template>
     <section class="post-list">
         <OfferPreview
-                v-for="post in posts.reverse().slice(0,3)"
-
+                v-for="post in postsReversed.slice(0, 3)"
                 :key="post.id"
                 :id="post.id"
                 :is-admin="isAdmin"
@@ -36,7 +35,11 @@
                 required: true
             }
         },
-
+        computed: {
+            postsReversed() {
+                return [...this.posts].reverse()
+            }
+        }
     }
 </script>
 

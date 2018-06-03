@@ -9,14 +9,31 @@
         </div>
 
         <section>
-            
+            <TripsList isAdmin
+                        :posts="loadedPosts"/>
         </section>
     </div>
 </template>
 
 <script>
+    import TripsList from "@/components/posts/TripsList"
+
     export default {
-        name: "index"
+        head() {
+            return {
+                title: 'Trip with StyleTravel',
+                 meta: [{ hid: 'description', name: 'description', content: 'About our company Nuxt.js ' }]
+            }
+        },
+        name: "Trips",
+        components: {
+            TripsList
+        },
+        computed: {
+            loadedPosts() {
+                return this.$store.getters.loadedPosts;
+            }
+        },
     }
 </script>
 

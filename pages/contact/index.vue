@@ -71,6 +71,12 @@
     import theBanner from "@/components/UI/banner"
 
     export default {
+        head() {
+            return {
+                title: "Contact StyleTravel Bulgaria",
+                meta: [{ hid: "description", name: 'description', content: 'Here is the place where you can send StyleTravel your questions'}]
+            }
+        },
         layout: "default",
         name: "index",
         components: {

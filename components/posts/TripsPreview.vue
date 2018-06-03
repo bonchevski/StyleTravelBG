@@ -1,7 +1,6 @@
 <template>
     <div>
         <div class="post-preview">
-
             <article>
                 <div
                         class="post-thumbnail"
@@ -81,6 +80,8 @@
                 </b-container>
 
             </b-modal>
+
+
         </div>
 
     </div>
@@ -91,7 +92,7 @@
     import 'bootstrap-vue/dist/bootstrap-vue.css'
 
     export default {
-        name: 'OfferPreview',
+        name: 'TripsPreview',
         data() {
             return {
                 displayModal: false,
@@ -138,17 +139,24 @@
             offerSpots: {
                 type: String,
                 required: true
+            },
+            offerDiscount: {
+                type: String,
+                required: true
             }
         },
         computed: {
             postLink() {
                 return this.isAdmin ? '/admin/' + this.id : '/Offers/' + this.id
-            }
+            },
         },
         filters: {
             snippet: function (value) {
                 return value.slice(0, 70)
             }
+        },
+        methods: {
+
         }
     }
 </script>
@@ -210,11 +218,6 @@
 
     }
 
-    .informations {
-        text-align: right;
-        border-top: 1px solid #ccc
-    }
-
     .post-preview {
         border: 1px solid #ccc;
         box-shadow: 0 2px 2px #ccc;
@@ -226,7 +229,6 @@
         text-decoration: none;
         color: black;
     }
-
 
     .post-preview {
         width: 350px;

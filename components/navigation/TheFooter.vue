@@ -2,14 +2,14 @@
     <footer class="container">
         <div class="the-footer">
             <div class="col-xs-7 col-md-6 col-lg-3 info">
-            <h1 class="address">Where to find us: Lozenets 14, Vejhen, Sofia</h1>
+            <h1 class="address">Where to find us: bul. "Vasil Levski" 8, Sofia</h1>
             <p class="copyright"> &#169; All rights reserved.</p>
             </div>
 
             <div class="some d-none d-md-block col-md-4 offset-md-2 col-lg-2 offset-lg-5">
 
-                <a href="www.facebook.com"><i class="fa fa-instagram fa-3x"></i></a>
-                <a href="www.instagram.com"><i class="fa fa-facebook-f fa-3x"></i></a>
+                <a href="https://www.facebook.com/%D0%A1%D1%82%D0%B8%D0%BB-%D0%A2%D1%80%D0%B0%D0%B2%D0%B5%D0%BB-117497205586305/"><i class="fa fa-instagram fa-3x"></i></a>
+                <a href="https://www.instagram.com/styletravelbg/"><i class="fa fa-facebook-f fa-3x"></i></a>
 
             </div>
 

@@ -57,6 +57,12 @@
     import TheBanner from '@/components/UI/banner'
 
     export default {
+        head() {
+            return {
+                title: "About StyleTravel Bulgaria",
+                meta: [{ hid: "description", name: 'description', content: 'Here you can find a short history of StyleTravel, from foundation until now and why we do what we do.'}]
+            }
+        },
         name: "index",
         components: {
             TheBanner

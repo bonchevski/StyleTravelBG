@@ -187,9 +187,7 @@
                 return value.slice(0, 70)
             }
         },
-        methods: {
 
-        }
     }
 </script>
 
