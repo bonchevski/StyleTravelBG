@@ -35,21 +35,28 @@
 
 
                     <div class="checkout" v-else>
-                        <form action="">
+                        <form id="form" method="post" v-on:submit="validateForm">
 
-                            <div class="full-wrapper">
-                                <h1 class="checkout-title">Card holder's name</h1>
-                                <input type="text" placeholder=" Full name" class="full-width">
-                            </div>
-                            <div class="full-wrapper">
-                                <h1 class="checkout-title">Card number</h1>
-                                <input type="tel" class="full-width" maxlength="16">
-                            </div>
-                            <div class="full-wrapper">
+                           <div class="form-group">
+          <label class="form-control-label" for="name">Name</label>
+          <input id="fullName" fullName="fullName" class="form-control" type="text" 
+                 v-model="fullName" v-bind:class="{ 'is-invalid': attemptSubmit && missingName }">
+          <div class="invalid-feedback">This field is required.</div>
+        </div><!-- /form-group -->
+                            <div class="form-group">
+          <label class="form-control-label" for="number">Please enter the 16 digits on the front of your card.</label>
+          <input id="cardNumber" name="cardNumber" class="form-control" type="text" v-model="cardNumber" v-bind:class="{ 'is-invalid': attemptSubmit && wrongNumber }">
+          <div class="invalid-feedback">Oops something went wrong! Please check that the numbers you entered are 16 in total.</div>
+        </div><!-- /form-group -->
+                            <div class="full-wrapper form-group">
                                 <div class="half-wrapper">
                                     <h1 class="checkout-title">CVR</h1>
-                                    <input type="tel" placeholder=" CVR" maxlength="3">
-                                </div>
+                                    <input type="tel" id="cvrNumber" name="cvrNumber" 
+                                    class="form-control" 
+                                    v-model="cvrNumber" 
+                                    v-bind:class="{ 'is-invalid': attemptSubmit && wrongCVR }">
+          <div class="invalid-feedback">Make sure you have entered all 3 digits of your CVR on the back of your card!</div>
+        </div><!-- /form-group -->
                                 <div class="half-wrapper">
                                     <h1 class="checkout-title"> Expiry date</h1>
                                     <input type="date">
@@ -57,24 +64,41 @@
                             </div>
 
 
-                            <div class="full-wrapper">
-                                <h1 class="">Billing address</h1>
-                                <input type="text" class="full-width"
-                                       placeholder=" Address: Street, bldg., apt., zip code">
+                            <div class="full-wrapper form-group">
+                             <input type="text" id="address" name="address" 
+                                    placeholder=" Address: Street, bldg., apt., zip code"
+                                    class="form-control" 
+                                    v-model="address" 
+                                    v-bind:class="{ 'is-invalid': attemptSubmit && missingAddress }">
+                            <div class="invalid-feedback">Oops!This field is required! Pleae fill in your address details.</div>
                             </div>
-                            <div class="full-wrapper">
-                                <input type="text" class="full-width" placeholder=" City">
+                           <div class="full-wrapper form-group">
+                             <input type="text" id="city" name="city" 
+                                    placeholder="Enter your City here..."
+                                    class="form-control" 
+                                    v-model="city" 
+                                    v-bind:class="{ 'is-invalid': attemptSubmit && missingCity }">
+                            <div class="invalid-feedback">Oops!This field is required! Pleae fill in your current city of residency.</div>
                             </div>
-                            <div class="full-wrapper">
-                                <input type="text" class="full-width" placeholder=" Country">
+                             <div class="full-wrapper form-group">
+                             <input type="text" id="country" name="country" 
+                             placeholder="Country"
+                                    class="form-control" 
+                                    v-model="country" 
+                                    v-bind:class="{ 'is-invalid': attemptSubmit && missingCountry }">
+                            <div class="invalid-feedback">Oops!This field is required! Pleae fill in your current country of residency.</div>
                             </div>
+                            <div class="full-wrapper form-group">
+                             <input type="email" id="email" name="email" placeholder="Youremail@example.com"
+                                    class="form-control" 
+                                    v-model="email" 
+                                    v-bind:class="{ 'is-invalid': attemptSubmit && missingEmail }">
+                            <div class="invalid-feedback">Oops!This field is required! Pleae enter your valid e-mail so we can contact you if needed!</div>
+                            </div>
+<button class="btn btn-primary" >Reserve Spots</button>
 
-                            <div class="full-wrapper">
-                                <input type="email" class="full-width" placeholder=" Your e-mail">
-                            </div>
-
-
-                            <b-button variant="primary" class="buy-booking">Reserve spots</b-button>
+                          <!--  <b-button variant="primary" class="buy-booking">Reserve spots</b-button>
+                        -->
                         </form>
                     </div>
                 </b-container>
@@ -93,10 +117,22 @@
 
     export default {
         name: 'TripsPreview',
+
         data() {
+            
             return {
+            
+                fullName: '',
+                cardNumber:'',
+                cvrNumber: '',
+                address: '',
+                city: '',
+                country: '',
+                email: '',
+                attemptSubmit: false,    
                 displayModal: false,
-                displayCheckout: true
+                displayCheckout: true,
+                
             }
         },
         props: {
@@ -149,13 +185,42 @@
             postLink() {
                 return this.isAdmin ? '/admin/' + this.id : '/Offers/' + this.id
             },
-        },
+                missingName: function () { return this.fullName === ''; },
+                missingAddress: function() {return this.address === '';},
+                missingCity: function () {return this.city ==='' ;},
+                missingCountry: function () {return this.country ==='' ;},
+                missingEmail: function () {return this.email ==='' ;},
+                wrongNumber: function () {
+      return (
+        this.cardnNumber === '' ||
+        this.cardNumber.length < 16 
+      )
+    },
+              wrongCVR: function () {
+      return (
+        this.cvrNumber === ''
+      )
+    },        
+    },
         filters: {
             snippet: function (value) {
                 return value.slice(0, 70)
             }
         },
         methods: {
+            validateForm: function (event) {
+    
+      this.attemptSubmit = true;
+      if (this.missingName)
+      if (this.cardNumber)
+      if (this.cvrNumber)
+      if (this.address)
+      if (this.city)
+      if (this.country)
+      if (this.email)
+      //if (this.cardnNumber.length < 16)
+       event.preventDefault();
+    },
 
         }
     }
