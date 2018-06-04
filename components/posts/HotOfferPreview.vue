@@ -348,7 +348,7 @@
     }
 
     h1 {
-        font-size: 1.7rem
+        font-size: 1.2rem
     }
 
     .post-thumbnail {
@@ -360,7 +360,7 @@
 
     .post-content {
         padding: 10px;
-        text-align: right;
+        text-align: left;
     }
 
     a:hover .post-content,

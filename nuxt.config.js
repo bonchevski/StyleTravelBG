@@ -77,7 +77,7 @@ module.exports = {
     },
     env: {
         baseUrl: process.env.BASE_URL || "https://styletravel-51842.firebaseio.com",
-        fbAPIKey: "AIzaSyBmQs0bYc6bMF4NyY2yMmnYgkbDDHjbGXc"
+        fbAPIKey: "AIzaSyBmQs0bYc6bMF4NyY2yMmnYgkbDDHjbGXc",
     },
     transition: {
         name: "fade",

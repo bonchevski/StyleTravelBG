@@ -71,7 +71,7 @@
                                     class="form-control" 
                                     v-model="address" 
                                     v-bind:class="{ 'is-invalid': attemptSubmit && missingAddress }">
-                            <div class="invalid-feedback">Oops!This field is required! Pleae fill in your address details.</div>
+                            <div class="invalid-feedback">Oops!This field is required! Please fill in your address details.</div>
                             </div>
                            <div class="full-wrapper form-group">
                              <input type="text" id="city" name="city" 
@@ -79,7 +79,7 @@
                                     class="form-control" 
                                     v-model="city" 
                                     v-bind:class="{ 'is-invalid': attemptSubmit && missingCity }">
-                            <div class="invalid-feedback">Oops!This field is required! Pleae fill in your current city of residency.</div>
+                            <div class="invalid-feedback">Oops!This field is required! Please fill in your current city of residency.</div>
                             </div>
                              <div class="full-wrapper form-group">
                              <input type="text" id="country" name="country" 
@@ -87,7 +87,7 @@
                                     class="form-control" 
                                     v-model="country" 
                                     v-bind:class="{ 'is-invalid': attemptSubmit && missingCountry }">
-                            <div class="invalid-feedback">Oops!This field is required! Pleae fill in your current country of residency.</div>
+                            <div class="invalid-feedback">Oops!This field is required! Please fill in your current country of residency.</div>
                             </div>
                             <div class="full-wrapper form-group">
                              <input type="email" id="email" name="email" placeholder="Youremail@example.com"
@@ -265,7 +265,7 @@
     }
 
     .informations {
-        text-align: right;
+        text-align: left;
         border-top: 1px solid #ccc
     }
 
@@ -276,7 +276,7 @@
     }
 
     .informations {
-        text-align: right;
+        text-align: left;
         border-top: 1px solid #ccc
     }
 

@@ -100,7 +100,7 @@
 
     .post-content {
         padding: 10px;
-        text-align: right;
+        text-align: left;
     }
 
     a:hover .post-content,
