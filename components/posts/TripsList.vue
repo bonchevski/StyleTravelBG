@@ -4,6 +4,7 @@
             <div class="search-wrapper col-xs-10 offset-xs-1 col-lg-4 offset-lg-4 col-xl-4 offset-xl-4 align-content-center">
                 <h1 class="search-title">Search:</h1>
                 <input type="text" v-model="search" placeholder=" search for your next trip's location">
+           <AdvancedSearchToggle @toggle="$emit('advancedSearchToggle')"/>
             </div>
         </section>
 
@@ -29,10 +30,11 @@
 
 <script>
     import TripsPreview from '@/components/posts/TripsPreview'
-
+    import AdvancedSearchToggle from '@/components/AdvancedSearchToggle'
     export default {
         components: {
-            TripsPreview
+            TripsPreview,
+            AdvancedSearchToggle
         },
         data() {
            return {

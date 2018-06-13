@@ -48,7 +48,7 @@
           <input id="cardNumber" name="cardNumber" class="form-control" type="text" v-model="cardNumber" v-bind:class="{ 'is-invalid': attemptSubmit && wrongNumber }">
           <div class="invalid-feedback">Oops something went wrong! Please check that the numbers you entered are 16 in total.</div>
         </div><!-- /form-group -->
-                            <div class="full-wrapper form-group">
+                            <div class="form-group">
                                 <div class="half-wrapper">
                                     <h1 class="checkout-title">CVR</h1>
                                     <input type="tel" id="cvrNumber" name="cvrNumber" 
@@ -64,7 +64,7 @@
                             </div>
 
 
-                            <div class="full-wrapper form-group">
+                            <div class="form-group">
                              <input type="text" id="address" name="address" 
                                     placeholder=" Address: Street, bldg., apt., zip code"
                                     class="form-control" 
@@ -72,7 +72,7 @@
                                     v-bind:class="{ 'is-invalid': attemptSubmit && missingAddress }">
                             <div class="invalid-feedback">Oops!This field is required! Pleae fill in your address details.</div>
                             </div>
-                           <div class="full-wrapper form-group">
+                           <div class=" form-group">
                              <input type="text" id="city" name="city" 
                                     placeholder="Enter your City here..."
                                     class="form-control" 
@@ -80,7 +80,7 @@
                                     v-bind:class="{ 'is-invalid': attemptSubmit && missingCity }">
                             <div class="invalid-feedback">Oops!This field is required! Pleae fill in your current city of residency.</div>
                             </div>
-                             <div class="full-wrapper form-group">
+                             <div class=" form-group">
                              <input type="text" id="country" name="country" 
                              placeholder="Country"
                                     class="form-control" 
@@ -88,7 +88,7 @@
                                     v-bind:class="{ 'is-invalid': attemptSubmit && missingCountry }">
                             <div class="invalid-feedback">Oops!This field is required! Pleae fill in your current country of residency.</div>
                             </div>
-                            <div class="full-wrapper form-group">
+                            <div class=" form-group">
                              <input type="email" id="email" name="email" placeholder="Youremail@example.com"
                                     class="form-control" 
                                     v-model="email" 
